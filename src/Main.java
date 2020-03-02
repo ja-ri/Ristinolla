@@ -7,8 +7,8 @@ public class Main {
         Ristinolla peli = new Ristinolla();
         Tietokone kone = new Tietokone();
         Random rnd = new Random();
-        int rRivi = rnd.nextInt(3);
-        int rSarake = rnd.nextInt(3);
+        //int rRivi = rnd.nextInt(3);
+        //int rSarake = rnd.nextInt(3);
         peli.tyhjennaPelilauta();
         System.out.println(" Ristinolla");
         System.out.println("Valitse 1 jos pelaat tietokonetta vastaan, 2 jos pelaat kaverin kanssa");
