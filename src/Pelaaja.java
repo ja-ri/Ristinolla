@@ -1,5 +1,5 @@
-public class Pelaaja {
-    public char pelaajanMerkki;
+public class Pelaaja extends Ristinolla{
+    protected char pelaajanMerkki;
     public Pelaaja(){
         pelaajanMerkki = 'x';
     }
