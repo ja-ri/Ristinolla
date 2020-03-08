@@ -7,10 +7,9 @@ public class Main {
         Ristinolla peli = new Ristinolla();
         Tietokone kone = new Tietokone();
         Random rnd = new Random();
-        //int rRivi = rnd.nextInt(3);
-        //int rSarake = rnd.nextInt(3);
+        Pelaaja h = new Pelaaja();
         peli.tyhjennaPelilauta();
-        System.out.println(" Ristinolla");
+        System.out.println("Ristinolla");
         System.out.println("Valitse 1 jos pelaat tietokonetta vastaan, 2 jos pelaat kaverin kanssa");
         if (scan.nextInt() == 1) {
             do {
@@ -25,11 +24,11 @@ public class Main {
                     peli.laitaNappula(rivi, sarake);
                 }
                 while (peli.laitaNappula(rivi, sarake));
-                    peli.laitaKoneenNappula(rnd.nextInt(3), rnd.nextInt(3));
+                        peli.laitaKoneenNappula(rnd.nextInt(3), rnd.nextInt(3));
             }
             while (!peli.voittiko() && !peli.onkoTaysi());
                     if (peli.onkoTaysi() && !peli.voittiko()) {
-                        System.out.println("  Tasapeli!");
+                        System.out.println("Tasapeli!");
                         peli.tulostaPelilauta();
                     } else {
                         System.out.println(peli.t);

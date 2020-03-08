@@ -3,4 +3,16 @@ public class Pelaaja extends Ristinolla{
     public Pelaaja(){
         pelaajanMerkki = 'x';
     }
+    @Override
+    public char annaPelaajanMerkki(){
+        return pelaajanMerkki;
+    }
+    @Override
+    public void seuraavaPelaaja(){
+        if(pelaajanMerkki == 'x'){
+            pelaajanMerkki = 'o';
+        }else{
+            pelaajanMerkki = 'x';
+        }
+    }
 }
