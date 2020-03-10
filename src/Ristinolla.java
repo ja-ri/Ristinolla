@@ -1,11 +1,11 @@
 import java.io.Serializable;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Ristinolla implements Serializable {
     private char pelaajanMerkki;
     protected char[][] pelilauta;
     public String t = "Tilanne laudalla:";
-    protected char tietokoneenMerkki;
 
     /**
      * Luo uuden pelilaudan joka on 3x3 matriisi
@@ -15,7 +15,6 @@ public class Ristinolla implements Serializable {
         pelilauta = new char[3][3];
         tyhjennaPelilauta();
         pelaajanMerkki = 'x';
-        tietokoneenMerkki = 'o';
     }
 
     /**
