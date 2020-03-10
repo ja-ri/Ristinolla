@@ -23,24 +23,7 @@ public class Tallennus extends Ristinolla {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*
-        char[][] pelilauta = this.pelilauta;
-        String tiedostonNimi = "ristinolla.txt";
-        try {
-            FileOutputStream file = new FileOutputStream(tiedostonNimi);
-            ObjectOutputStream out = new ObjectOutputStream(file);
 
-            out.writeObject(pelilauta);
-
-            out.close();
-            file.close();
-
-            System.out.println("Peli tallennettu");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-         */
     }
 
 
@@ -71,21 +54,4 @@ public class Tallennus extends Ristinolla {
         d.asetaPelilauta(a);
         d.tulostaPelilauta();
     }
-
-        /*
-        try {
-            FileInputStream file = new FileInputStream("ristinolla");
-            ObjectInputStream in = new ObjectInputStream(file);
-            pelilauta = (char[][]) in.readObject();
-            in.close();
-            file.close();
-            System.out.println("Peli ladattu");
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-         */
-
-
-
 }
