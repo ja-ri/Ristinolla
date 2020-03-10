@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Random;
 
-public class Ristinolla {
+public class Ristinolla implements Serializable {
     private char pelaajanMerkki;
     protected char[][] pelilauta;
     public String t = "Tilanne laudalla:";
@@ -72,12 +73,34 @@ public class Ristinolla {
         }
         return false;
     }
+    public boolean tarkistaVoittikoRiviX(){
+        for(int i = 0; i < 3; i++){
+            if(tarkistaX(pelilauta[i][0], pelilauta[i][1], pelilauta[i][2])){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean tarkistaVoittikoRiviO(){
+        for(int i = 0; i < 3; i++){
+            if(tarkistaO(pelilauta[i][0], pelilauta[i][1], pelilauta[i][2])){
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * @return true, jos jompi kumpi diagonaaleista on voittava
      */
     public boolean tarkistaVoittikoDiagonaali(){
         return ((tarkista(pelilauta[0][0], pelilauta[1][1], pelilauta[2][2])) || (tarkista(pelilauta[2][0], pelilauta[1][1], pelilauta[0][2])));
+    }
+    public boolean tarkistaVoittikoDiagonaaliX(){
+        return ((tarkistaX(pelilauta[0][0], pelilauta[1][1], pelilauta[2][2])) || (tarkista(pelilauta[2][0], pelilauta[1][1], pelilauta[0][2])));
+    }
+    public boolean tarkistaVoittikoDiagonaaliO(){
+        return ((tarkistaO(pelilauta[0][0], pelilauta[1][1], pelilauta[2][2])) || (tarkista(pelilauta[2][0], pelilauta[1][1], pelilauta[0][2])));
     }
 
     /**
@@ -91,12 +114,44 @@ public class Ristinolla {
         }
         return false;
     }
+    public boolean tarkistaVoittikoSarakeX(){
+        for(int i = 0; i < 3; i++){
+            if(tarkistaX(pelilauta[0][i], pelilauta[1][i], pelilauta[2][i])){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean tarkistaVoittikoSarakeO(){
+        for(int i = 0; i < 3; i++){
+            if(tarkistaO(pelilauta[0][i], pelilauta[1][i], pelilauta[2][i])){
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * @return true, jos arvo kyseisessä ruudussa on sama kuin muissakin ja se ei ole "-"
      */
+    public boolean tarkistaX(char x1, char x2, char x3){
+        if((x1 == 'x') && (x1 == x2) && (x2 == x3)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
     public boolean tarkista(char x1, char x2, char x3){
         if((x1 != '-') && (x1 == x2) && (x2 == x3)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    public boolean tarkistaO(char x1, char x2, char x3){
+        if((x1 == 'o') && (x1 == x2) && (x2 == x3)){
             return true;
         }else{
             return false;
@@ -109,6 +164,12 @@ public class Ristinolla {
      */
     public boolean voittiko(){
         return tarkistaVoittikoDiagonaali() || tarkistaVoittikoRivi() || tarkistaVoittikoSarake();
+    }
+    public boolean voittikoX(){
+        return tarkistaVoittikoDiagonaaliX() || tarkistaVoittikoRiviX() || tarkistaVoittikoSarakeX();
+    }
+    public boolean voittikoO(){
+        return tarkistaVoittikoDiagonaaliO() || tarkistaVoittikoRiviO() || tarkistaVoittikoSarakeO();
     }
 
     /**
@@ -164,8 +225,5 @@ public class Ristinolla {
         }else{
             pelaajanMerkki = 'x';
         }
-    }
-    public char annaTietokoneenMerkki(){
-        return tietokoneenMerkki;
     }
 }
