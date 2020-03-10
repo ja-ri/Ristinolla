@@ -3,7 +3,7 @@ import java.io.*;
 public class Tallennus extends Ristinolla {
 
     /**
-     * tallentaa pelin
+     * tallentaa pelin tekstitiedostoon
      */
     public void tallenna(char[][] a) {
         String b = "";
@@ -28,7 +28,7 @@ public class Tallennus extends Ristinolla {
 
 
     /**
-     * lataa aiemmin tallennetun pelin
+     * lataa aiemmin tallennetun pelin tekstitiedostosta ja luo uuden pelilaudan (3x3 matriisi)
      */
     public void lataa() {
         File tiedosto = new File("Ristinolla.txt");
