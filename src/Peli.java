@@ -22,7 +22,7 @@ public class Peli extends Ristinolla {
         do {
             System.out.println(peli.t);
             peli.tulostaPelilauta();
-            int b = 0;
+            int b;
             System.out.println("Anna tyhjä rivi ja sarake asettaaksesi nappula.");
             b = scan.nextInt();
             if (b == 5) {
@@ -32,14 +32,12 @@ public class Peli extends Ristinolla {
             } else {
                 rivi = b - 1;
                 sarake = scan.nextInt() - 1;
-                if (peli.pelilauta[rivi][sarake] == '-') {
-                    peli.laitaNappula(rivi, sarake);
-                } else {
+                if (peli.pelilauta[rivi][sarake] != '-') {
                     System.out.println("Virheellinen siirto, anna uusi ruutu");
                     rivi = scan.nextInt() - 1;
                     sarake = scan.nextInt() - 1;
-                    peli.laitaNappula(rivi, sarake);
                 }
+                peli.laitaNappula(rivi, sarake);
             }
             while (peli.laitaNappula(rivi, sarake)) ;
             peli.laitaKoneenNappula(rnd.nextInt(3), rnd.nextInt(3));
@@ -81,14 +79,12 @@ public class Peli extends Ristinolla {
                 } else {
                     rivi = b - 1;
                     sarake = scan.nextInt() - 1;
-                    if (peli.pelilauta[rivi][sarake] == '-') {
-                        peli.laitaNappula(rivi, sarake);
-                    } else {
+                    if (peli.pelilauta[rivi][sarake] != '-') {
                         System.out.println("Virheellinen siirto, anna uusi ruutu");
                         rivi = scan.nextInt() - 1;
                         sarake = scan.nextInt() - 1;
-                        peli.laitaNappula(rivi, sarake);
                     }
+                    peli.laitaNappula(rivi, sarake);
                 }
             }
             while (!peli.laitaNappula(rivi, sarake));
