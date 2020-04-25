@@ -7,14 +7,14 @@ public class Tallennus extends Ristinolla {
      */
     public void tallenna(char[][] a) {
         String b = "";
-        for(int i = 0; i<3; i++){
-            for(int j = 0; j<3; j++){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 b = b + String.valueOf(a[i][j]);
             }
         }
 
         BufferedWriter writer = null;
-        try{
+        try {
             File tiedosto = new File("Ristinolla.txt");
             FileWriter kirjoittaja = new FileWriter(tiedosto);
             writer = new BufferedWriter(kirjoittaja);
