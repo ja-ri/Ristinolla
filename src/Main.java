@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -14,11 +15,11 @@ public class Main {
         int a = 0;
         a = scan.nextInt();
 
-        if (a==1) {
+        if (a == 1) {
             p.pelaaTietokone();
-        } else if(a==2) {
+        } else if (a == 2) {
             p.pelaaIhminen();
-        } else if (a==3) {
+        } else if (a == 3) {
             tal.lataa();
         }
 
