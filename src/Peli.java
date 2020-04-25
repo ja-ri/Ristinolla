@@ -2,7 +2,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class Peli extends Tallennus{
+public class Peli extends Ristinolla{
     Scanner scan = new Scanner(System.in);
     Ristinolla peli = new Ristinolla();
     Random rnd = new Random();
@@ -13,16 +13,7 @@ public class Peli extends Tallennus{
     public void asetaPelilauta(char[][] pepi) {
         this.pelilauta = pepi;
     }
-    public void pelaa(){
-        peli.tyhjennaPelilauta();
-        int a = 0;
-        System.out.println("Ristinolla");
-        System.out.println("Valitse 1 jos haluat pelata tietokonetta vastaan,");
-        System.out.println("2 jos haluat pelata kaverin kanssa,");
-        System.out.println("3 jos haluat ladata kesken j‰‰neen pelin");
-        System.out.println("ja 5 jos haluaat tallentaa pelin");
-        a = scan.nextInt();
-        if (a == 1) {
+    public void pelaaTietokone(){
                 int rivi;
                 int sarake;
                 do {
@@ -33,12 +24,19 @@ public class Peli extends Tallennus{
                     b = scan.nextInt();
                     if (b == 5) {
                         tal.tallenna(peli.pelilauta);
-                        pelaa();
+                        pelaaTietokone();
                         break;
                     } else {
                         rivi = b - 1;
                         sarake = scan.nextInt() - 1;
-                        peli.laitaNappula(rivi, sarake);
+                        if (peli.pelilauta[rivi][sarake] == '-') {
+                            peli.laitaNappula(rivi, sarake);
+                        } else {
+                            System.out.println("Virheellinen siirto, anna uusi ruutu");
+                            rivi = scan.nextInt() - 1;
+                            sarake = scan.nextInt() - 1;
+                            peli.laitaNappula(rivi, sarake);
+                        }
                     }
                     while (peli.laitaNappula(rivi, sarake)) ;
                     peli.laitaKoneenNappula(rnd.nextInt(3), rnd.nextInt(3));
@@ -62,7 +60,8 @@ public class Peli extends Tallennus{
 
 
 
-        } else if (a == 2){
+        }
+        public void pelaaIhminen(){
                 do {
                     System.out.println(peli.t);
                     peli.tulostaPelilauta();
@@ -74,7 +73,7 @@ public class Peli extends Tallennus{
                             b = scan.nextInt();
                             if(b == 5){
                                 tal.tallenna(peli.pelilauta);
-                                pelaa();
+                                pelaaIhminen();
                                 break;
                             }else {
                                 rivi = b - 1;
@@ -95,9 +94,7 @@ public class Peli extends Tallennus{
                     System.out.println(Character.toUpperCase(peli.annaPelaajanMerkki()) + " Voitti!");
                 }
         }
-        if (a == 3) {
-                tal.lataa();
-        }
+
     }
-}
+
 
