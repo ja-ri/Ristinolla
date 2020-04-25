@@ -6,19 +6,19 @@ public class Tallennus extends Ristinolla {
      * tallentaa pelin tekstitiedostoon
      */
     public void tallenna(char[][] a) {
-        String b = "";
+        StringBuilder b = new StringBuilder();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                b = b + String.valueOf(a[i][j]);
+                b.append(a[i][j]);
             }
         }
 
-        BufferedWriter writer = null;
+        BufferedWriter writer;
         try {
             File tiedosto = new File("Ristinolla.txt");
             FileWriter kirjoittaja = new FileWriter(tiedosto);
             writer = new BufferedWriter(kirjoittaja);
-            writer.write(b);
+            writer.write(b.toString());
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();

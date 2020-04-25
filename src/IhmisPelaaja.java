@@ -1,10 +1,11 @@
 
 import java.util.Scanner;
 
-public class IhmisPelaaja extends Pelaaja {
+/*public class IhmisPelaaja extends Pelaaja {
+
     @Override
     public char[][] pelaaVuoro(char[][] pelilauta) {
 
-        return pelilauta;
+        return new char[][];
     }
-}
+}*/

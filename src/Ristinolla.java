@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Ristinolla implements Serializable {
+public class Ristinolla {
     private char pelaajanMerkki;
     protected char[][] pelilauta;
     public String t = "Tilanne laudalla:";
