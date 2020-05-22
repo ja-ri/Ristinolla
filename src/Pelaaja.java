@@ -1,4 +1,6 @@
-/*
+
+
+
 public abstract class Pelaaja {
-    public abstract char[][] pelaaVuoro(char[][] pelilauta);
-}*/
+	public abstract void pelaaVuoro(char[][] pelilauta);
+}
